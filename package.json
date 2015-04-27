@@ -1,7 +1,7 @@
 {
   "name": "ctrl-last-tab",
   "main": "./lib/ctrl-last-tab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Go to previous tabs by pressing ctrl-tab.",
   "activationCommands": {
     "atom-workspace": "ctrl-last-tab:previous"
