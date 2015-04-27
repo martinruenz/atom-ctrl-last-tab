@@ -19,11 +19,9 @@ module.exports = CtrlLastTab =
     @subscriptions.dispose()
 
   ctrlReleased: (keystrokes, binding, keyboardEventTarget) ->
-    console.log "c"
     @index = 1
 
   previous: ->
-    console.log @index
     tabs = atom.workspace.getPaneItems()
     pane = atom.workspace.getActivePane()
     tabs = tabs.filter (tab) -> tab.id?
