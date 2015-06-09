@@ -1,7 +1,7 @@
 {
   "name": "ctrl-last-tab",
   "main": "./lib/ctrl-last-tab",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Go to previous tabs by pressing ctrl-tab.",
   "repository": "https://github.com/martinruenz/atom-ctrl-last-tab",
   "license": "MIT",
