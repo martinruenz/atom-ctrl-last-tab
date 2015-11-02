@@ -34,8 +34,24 @@ module.exports =
     @subscriptions.add atom.workspace.onDidDestroyPaneItem (e) =>
       @stack.removeItem e.item
 
+    areModifiersDown = false
+
     @subscriptions.add atom.workspace.onDidChangeActivePaneItem (item) =>
-      @stack.moveItemToFront item if !@releaseListener && item
+      @stack.moveItemToFront item if !@releaseListener && item && !areModifiersDown
+
+    onDown = (e) =>
+      if e.metaKey && e.shiftKey && !areModifiersDown
+        areModifiersDown = true
+
+    onUp = (e) =>
+      if !e.metaKey && !e.shiftKey && areModifiersDown
+        areModifiersDown = false
+        item = atom.workspace.getActivePaneItem()
+        @stack.moveItemToFront item
+
+    atom.views.getView(atom.workspace).addEventListener 'keydown', onDown, true
+    atom.views.getView(atom.workspace).addEventListener 'keyup', onUp, true
+
 
   deactivate: ->
     @subscriptions.dispose()
