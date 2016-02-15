@@ -47,7 +47,7 @@ module.exports =
       if !e.metaKey && !e.shiftKey && areModifiersDown
         areModifiersDown = false
         item = atom.workspace.getActivePaneItem()
-        @stack.moveItemToFront item
+        @stack.moveItemToFront item if item?
 
     atom.views.getView(atom.workspace).addEventListener 'keydown', onDown, true
     atom.views.getView(atom.workspace).addEventListener 'keyup', onUp, true
